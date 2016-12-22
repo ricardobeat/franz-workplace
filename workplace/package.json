@@ -6,13 +6,17 @@
   "author": "Ricardo Tomasi <ricardobeat@gmail.com>",
   "license": "MIT",
   "config": {
-    "serviceURL": "https://company.facebook.com",
+    "serviceURL": "https://{teamID}.facebook.com/chat/t",
     "serviceName": "Workplace",
     "popup": [],
-    "hasNotificationSound": false,
+    "hasNotificationSound": true,
     "hasTeamID": true,
-    "customURL": true,
-    "hostedOnly": true,
+    "customURL": false,
+    "hostedOnly": false,
+    "wording": {
+        "url": "facebook.com",
+        "team": "Workplace"
+    },
     "hasIndirectMessages": false,
     "webviewOptions": {
       "disablewebsecurity": ""
