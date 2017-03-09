@@ -2,7 +2,6 @@ var MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
   eventListenerSupported = window.addEventListener;
 
 module.exports = function(obj, callback){
-  console.log(obj);
   if( MutationObserver ){
     // define a new observer
     var obs = new MutationObserver(function(mutations, observer){
