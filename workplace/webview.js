@@ -19,7 +19,6 @@ module.exports = (Franz, options) => {
             res.forEach(function(r){
               var data = JSON.parse(r)
               if (get(data, 'ms.0.delta.class') == "NewMessage") {
-              console.log(data);
                 Franz.setBadge(unread = '1+')
               }
             })
