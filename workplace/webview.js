@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = (Franz, options) => {
 
   document.querySelector('#pagelet_bluebar').style.display = "none"
@@ -9,5 +11,5 @@ module.exports = (Franz, options) => {
     Franz.setBadge(count)
   }
 
-  Franz.loop(getMessages)
+  Franz.injectCSS(path.join(__dirname, 'workplace.css'))
 }
