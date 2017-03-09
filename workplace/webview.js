@@ -19,6 +19,7 @@ module.exports = (Franz, options) => {
             res.forEach(function(r){
               var data = JSON.parse(r)
               if (get(data, 'ms.0.delta.class') == "NewMessage") {
+              console.log(data);
                 Franz.setBadge(unread = '1+')
               }
             })
@@ -30,20 +31,23 @@ module.exports = (Franz, options) => {
   })(XMLHttpRequest.prototype.send)
 
   function highlightMentions() {
-    var messages = document.querySelector('[aria-label="Messages"]').querySelectorAll('[data-tooltip-position="left"] span')
-    var regex = new RegExp("(.*)" + name + "(.*)", "i");
-    var msg;
-    for(var i = 0; i < messages.length; i++) {
-      msg = messages[i];
-      if(regex.test(msg.innerHTML)) {
-        msg.classList.add('f-mention');
+    //sometimes the chatlog is not rendered when this happens
+    try {
+      var messages = document.querySelector('[aria-label="Messages"]').querySelectorAll('[data-tooltip-position="left"] span')
+      var regex = new RegExp("(.*)" + name + "(.*)", "i");
+      var msg;
+      for(var i = 0; i < messages.length; i++) {
+        msg = messages[i];
+        if(regex.test(msg.innerHTML)) {
+          msg.classList.add('f-mention');
+        }
       }
-    }
+    } catch(e) {}
   }
 
   // Different init times due to render variations, need to make sure the elements exist
   function initHighlight() {
-    var chatLog = document.querySelector('[aria-label="Messages"]');
+    var chatLog = document.querySelector('div[role="presentation"]');
     if (chatLog) {
       name = document.querySelector('[title=Profile] span').innerText.toLowerCase();
       observeDom(chatLog, highlightMentions);
