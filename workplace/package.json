@@ -6,7 +6,7 @@
   "author": "Ricardo Tomasi <ricardobeat@gmail.com>",
   "license": "MIT",
   "config": {
-    "serviceURL": "https://{teamID}.facebook.com/chat/t",
+    "serviceURL": "https://{teamID}.facebook.com/chat",
     "serviceName": "Workplace",
     "popup": [],
     "hasNotificationSound": true,
