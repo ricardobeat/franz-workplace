@@ -2,3 +2,7 @@
 #pageFooter {
 	display: none;
 }
+
+.f-mention {
+	background: yellow;
+}
